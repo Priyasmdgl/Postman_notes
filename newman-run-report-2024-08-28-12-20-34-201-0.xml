@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="postman training" tests="5" time="1.064">
+  <testsuite name="Get request to list the users from the specified page" id="8bae51a4-4cb5-4182-96cd-f8d1f01e1041" timestamp="2024-08-28T12:20:32.753Z" tests="0" failures="0" errors="0" time="0.279"/>
+  <testsuite name="Search for an user in get request" id="edd7fb0c-1edd-4362-b558-d9f307220fa5" timestamp="2024-08-28T12:20:32.753Z" tests="0" failures="0" errors="0" time="0.037"/>
+  <testsuite name="unavailable user request" id="05898c12-e9b1-46aa-9c89-2412ef882f5e" timestamp="2024-08-28T12:20:32.753Z" tests="0" failures="0" errors="0" time="0.369"/>
+  <testsuite name="To create an user" id="2b3aa92f-3b82-4fba-adc5-d1226624e2c2" timestamp="2024-08-28T12:20:32.753Z" tests="0" failures="0" errors="0" time="0.379"/>
+  <testsuite name="Setting a global variable for reqres.in and accessing it" id="511bdbf5-d93f-4839-9e6a-fca39b0b9654" timestamp="2024-08-28T12:20:32.753Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: getaddrinfo ENOTFOUND {{base}}
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+
+---
+]]></system-err>
+  </testsuite>
+</testsuites>
