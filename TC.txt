@@ -1,0 +1,337 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("Response time is less than 1500ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(1500);
+});
+pm.test("Body matches first_name", function () {
+    pm.expect(pm.response.text()).to.include("Priya");
+});
+pm.test("Body matches first_name", function () {
+    pm.expect(pm.response.text()).to.include("Tobias");
+});
+pm.test("Successful GET request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200,201]);
+});
+console.log(pm.globals.get("base"));
+pm.globals.set("url", "bing");
+pm.globals.unset("url");
+pm.test("Status code name has string", function () {
+    pm.response.to.have.status("OK");
+});
+pm.test("Content-Type header is present", function () {
+    pm.response.to.have.header("Content-Type");
+});
+pm.test("Content-Type header is application/json", function () {
+    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');
+});
+pm.test("Cookie is present", function () {
+    pm.expect(pm.cookies.has('language')).to.be.true;
+});
+const jsonData = pm.response.json();
+pm.test("Test data type of the response", function () {
+    pm.expect(jsonData.data).to.be.an("array");
+    pm.expect(jsonData.data[0].first_name).to.be.a("string");
+    pm.expect(jsonData.data[0].last_name).to.be.a("string");
+    pm.expect(jsonData.data[0].id).to.be.a("number");
+});
+pm.test("Test array properties", function () {
+    pm.expect(jsonData.data[0],[1],[2],[3],[4],[5]).to.have.property('first_name');
+    pm.expect(jsonData.data[0],[1],[2],[3],[4],[5]).to.have.property('last_name');
+    pm.expect(jsonData.data[0],[1],[2],[3],[4],[5]).to.have.property('id');
+    pm.expect(jsonData.data[0],[1],[2],[3],[4],[5]).to.have.property('email');
+});
+pm.test("Value of the fields", function () {
+    pm.expect(jsonData.data[0].first_name).to.eql("Michael");
+    pm.expect(jsonData.data[0].last_name).to.eql("Lawson");
+    pm.expect(jsonData.data[0].id).to.equal(7);
+});
+var schema = {
+    "title": "Root Schema",
+    "type": "object",
+    "required": [
+        "page",
+        "per_page",
+        "total",
+        "total_pages",
+        "data",
+        "support"
+    ],
+    "properties": {
+        "page": {
+            "title": "The page Schema",
+            "type": "integer",
+            "examples": [
+                2
+            ]
+        },
+        "per_page": {
+            "title": "The per_page Schema",
+            "type": "integer",
+            "examples": [
+                6
+            ]
+        },
+        "total": {
+            "title": "The total Schema",
+            "type": "integer",
+            "examples": [
+                12
+            ]
+        },
+        "total_pages": {
+            "title": "The total_pages Schema",
+            "type": "integer",
+            "examples": [
+                2
+            ]
+        },
+        "data": {
+            "title": "The data Schema",
+            "type": "array",
+            "items": {
+                "title": "A Schema",
+                "type": "object",
+                "required": [
+                    "id",
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "avatar"
+                ],
+                "properties": {
+                    "id": {
+                        "title": "The id Schema",
+                        "type": "integer",
+                        "examples": [
+                            7,
+                            8,
+                            9,
+                            10,
+                            11,
+                            12
+                        ]
+                    },
+                    "email": {
+                        "title": "The email Schema",
+                        "type": "string",
+                        "examples": [
+                            "michael.lawson@reqres.in",
+                            "lindsay.ferguson@reqres.in",
+                            "tobias.funke@reqres.in",
+                            "byron.fields@reqres.in",
+                            "george.edwards@reqres.in",
+                            "rachel.howell@reqres.in"
+                        ]
+                    },
+                    "first_name": {
+                        "title": "The first_name Schema",
+                        "type": "string",
+                        "examples": [
+                            "Michael",
+                            "Lindsay",
+                            "Tobias",
+                            "Byron",
+                            "George",
+                            "Rachel"
+                        ]
+                    },
+                    "last_name": {
+                        "title": "The last_name Schema",
+                        "type": "string",
+                        "examples": [
+                            "Lawson",
+                            "Ferguson",
+                            "Funke",
+                            "Fields",
+                            "Edwards",
+                            "Howell"
+                        ]
+                    },
+                    "avatar": {
+                        "title": "The avatar Schema",
+                        "type": "string",
+                        "examples": [
+                            "https://reqres.in/img/faces/7-image.jpg",
+                            "https://reqres.in/img/faces/8-image.jpg",
+                            "https://reqres.in/img/faces/9-image.jpg",
+                            "https://reqres.in/img/faces/10-image.jpg",
+                            "https://reqres.in/img/faces/11-image.jpg",
+                            "https://reqres.in/img/faces/12-image.jpg"
+                        ]
+                    }
+                },
+                "examples": [{
+                    "id": 7,
+                    "email": "michael.lawson@reqres.in",
+                    "first_name": "Michael",
+                    "last_name": "Lawson",
+                    "avatar": "https://reqres.in/img/faces/7-image.jpg"
+                },
+                {
+                    "id": 8,
+                    "email": "lindsay.ferguson@reqres.in",
+                    "first_name": "Lindsay",
+                    "last_name": "Ferguson",
+                    "avatar": "https://reqres.in/img/faces/8-image.jpg"
+                },
+                {
+                    "id": 9,
+                    "email": "tobias.funke@reqres.in",
+                    "first_name": "Tobias",
+                    "last_name": "Funke",
+                    "avatar": "https://reqres.in/img/faces/9-image.jpg"
+                },
+                {
+                    "id": 10,
+                    "email": "byron.fields@reqres.in",
+                    "first_name": "Byron",
+                    "last_name": "Fields",
+                    "avatar": "https://reqres.in/img/faces/10-image.jpg"
+                },
+                {
+                    "id": 11,
+                    "email": "george.edwards@reqres.in",
+                    "first_name": "George",
+                    "last_name": "Edwards",
+                    "avatar": "https://reqres.in/img/faces/11-image.jpg"
+                },
+                {
+                    "id": 12,
+                    "email": "rachel.howell@reqres.in",
+                    "first_name": "Rachel",
+                    "last_name": "Howell",
+                    "avatar": "https://reqres.in/img/faces/12-image.jpg"
+                }]
+            },
+            "examples": [
+                [{
+                    "id": 7,
+                    "email": "michael.lawson@reqres.in",
+                    "first_name": "Michael",
+                    "last_name": "Lawson",
+                    "avatar": "https://reqres.in/img/faces/7-image.jpg"
+                },
+                {
+                    "id": 8,
+                    "email": "lindsay.ferguson@reqres.in",
+                    "first_name": "Lindsay",
+                    "last_name": "Ferguson",
+                    "avatar": "https://reqres.in/img/faces/8-image.jpg"
+                },
+                {
+                    "id": 9,
+                    "email": "tobias.funke@reqres.in",
+                    "first_name": "Tobias",
+                    "last_name": "Funke",
+                    "avatar": "https://reqres.in/img/faces/9-image.jpg"
+                },
+                {
+                    "id": 10,
+                    "email": "byron.fields@reqres.in",
+                    "first_name": "Byron",
+                    "last_name": "Fields",
+                    "avatar": "https://reqres.in/img/faces/10-image.jpg"
+                },
+                {
+                    "id": 11,
+                    "email": "george.edwards@reqres.in",
+                    "first_name": "George",
+                    "last_name": "Edwards",
+                    "avatar": "https://reqres.in/img/faces/11-image.jpg"
+                },
+                {
+                    "id": 12,
+                    "email": "rachel.howell@reqres.in",
+                    "first_name": "Rachel",
+                    "last_name": "Howell",
+                    "avatar": "https://reqres.in/img/faces/12-image.jpg"
+                }]
+            ]
+        },
+        "support": {
+            "title": "The support Schema",
+            "type": "object",
+            "required": [
+                "url",
+                "text"
+            ],
+            "properties": {
+                "url": {
+                    "title": "The url Schema",
+                    "type": "string",
+                    "examples": [
+                        "https://reqres.in/#support-heading"
+                    ]
+                },
+                "text": {
+                    "title": "The text Schema",
+                    "type": "string",
+                    "examples": [
+                        "To keep ReqRes free, contributions towards server costs are appreciated!"
+                    ]
+                }
+            },
+            "examples": [{
+                "url": "https://reqres.in/#support-heading",
+                "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+            }]
+        }
+    },
+    "examples": [{
+        "page": 2,
+        "per_page": 6,
+        "total": 12,
+        "total_pages": 2,
+        "data": [{
+            "id": 7,
+            "email": "michael.lawson@reqres.in",
+            "first_name": "Michael",
+            "last_name": "Lawson",
+            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        },
+        {
+            "id": 8,
+            "email": "lindsay.ferguson@reqres.in",
+            "first_name": "Lindsay",
+            "last_name": "Ferguson",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+        },
+        {
+            "id": 9,
+            "email": "tobias.funke@reqres.in",
+            "first_name": "Tobias",
+            "last_name": "Funke",
+            "avatar": "https://reqres.in/img/faces/9-image.jpg"
+        },
+        {
+            "id": 10,
+            "email": "byron.fields@reqres.in",
+            "first_name": "Byron",
+            "last_name": "Fields",
+            "avatar": "https://reqres.in/img/faces/10-image.jpg"
+        },
+        {
+            "id": 11,
+            "email": "george.edwards@reqres.in",
+            "first_name": "George",
+            "last_name": "Edwards",
+            "avatar": "https://reqres.in/img/faces/11-image.jpg"
+        },
+        {
+            "id": 12,
+            "email": "rachel.howell@reqres.in",
+            "first_name": "Rachel",
+            "last_name": "Howell",
+            "avatar": "https://reqres.in/img/faces/12-image.jpg"
+        }],
+        "support": {
+            "url": "https://reqres.in/#support-heading",
+            "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+        }
+    }]
+}
+
+pm.test('Schema is valid', function () {
+    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;
+});
