@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "213f07ec-dc33-42ce-8010-71259d2b03a2",
+		"name": "Running a collection through monitor for every 1 hr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37621942"
+	},
+	"item": [
+		{
+			"name": "Script execution order",
+			"item": [
+				{
+					"name": "Google",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"After Google\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Before Google\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.google.com",
+							"protocol": "http",
+							"host": [
+								"www",
+								"google",
+								"com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Yahoo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"After Yahoo\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Before Yahoo\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.yahoo.com",
+							"protocol": "http",
+							"host": [
+								"www",
+								"yahoo",
+								"com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"After Bing\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Before Bing\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.bing.com",
+							"protocol": "http",
+							"host": [
+								"www",
+								"bing",
+								"com"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"console.log(\"folder level pre-request script\")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"console.log(\"folder level post response script\")"
+						]
+					}
+				}
+			]
+		}
+	]
+}

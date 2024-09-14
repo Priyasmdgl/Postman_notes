@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "2e5e9336-c2e9-400e-913d-bccdf2e9ea07",
+		"name": "Mock server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37621942"
+	},
+	"item": [
+		{
+			"name": "Get request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fa2fd1e0-48bb-4fd7-81e4-eea22274edb3.mock.pstmn.io/emloyees",
+					"protocol": "https",
+					"host": [
+						"fa2fd1e0-48bb-4fd7-81e4-eea22274edb3",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"emloyees"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get request example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fa2fd1e0-48bb-4fd7-81e4-eea22274edb3.mock.pstmn.io/emloyees",
+							"protocol": "https",
+							"host": [
+								"fa2fd1e0-48bb-4fd7-81e4-eea22274edb3",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"emloyees"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"name\": \"Raghav\",\r\n    \"job\": \"Developer\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Create employees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://fa2fd1e0-48bb-4fd7-81e4-eea22274edb3.mock.pstmn.io/employees",
+					"protocol": "https",
+					"host": [
+						"fa2fd1e0-48bb-4fd7-81e4-eea22274edb3",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create employees",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://fa2fd1e0-48bb-4fd7-81e4-eea22274edb3.mock.pstmn.io/employees",
+							"protocol": "https",
+							"host": [
+								"fa2fd1e0-48bb-4fd7-81e4-eea22274edb3",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n\"name\": \"Raghav\",\r\n\"job\": \"Developer\"\r\n}"
+				}
+			]
+		}
+	]
+}
