@@ -1,0 +1,66 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "first_name": "Priya",
+      "last_name": "Venkat",
+      "year": "1"
+    },
+    {
+      "id": "2",
+      "first_name": "Veera",
+      "last_name": "Raghavan",
+      "year": "2"
+    },
+    {
+      "id": "3",
+      "first_name": "Jayanthi",
+      "last_name": "P",
+      "year": "3"
+    },
+    {
+      "id": "d5c8",
+      "first_name": "Magu",
+      "last_name": "M",
+      "year": "4"
+    },
+    {
+      "id": "e62f",
+      "first_name": "abc"
+    },
+    {
+      "id": "b6c4",
+      "first_name": "def"
+    },
+    {
+      "id": "eeb2",
+      "first_name": "ghi",
+      "last_name": "ljk",
+      "year": 1
+    },
+    {
+      "id": "1c6a",
+      "first_name": "mno",
+      "last_name": "pqr",
+      "year": 2
+    },
+    {
+      "id": "644e",
+      "first_name": "ghi",
+      "last_name": "ljk",
+      "year": 1
+    },
+    {
+      "id": "8012",
+      "first_name": "mno",
+      "last_name": "pqr",
+      "year": 2
+    },
+    {
+      "id": "bc99",
+      "first_name": "Mahesh",
+      "last_name": "Pandi",
+      "year": "1"
+    }
+  ]
+}
