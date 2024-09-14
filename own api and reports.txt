@@ -1,0 +1,46 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "first_name": "Priya",
+      "last_name": "Venkat",
+      "year": "1"
+    },
+    {
+      "id": 2,
+      "first_name": "Veera",
+      "last_name": "Raghavan",
+      "year": "2"
+    },
+    {
+      "id": 3,
+      "first_name": "Jayanthi",
+      "last_name": "M",
+      "year": "3"
+    }
+  ]
+}
+
+
+npm install -g json-server
+notepad db.json
+json-server --watch db.json
+
+http://localhost:3000/students
+
+
+
+to run a collection through newman 
+
+npm install -g newman
+newman run collection name.postman_collection.json
+
+
+reports:
+
+npm i -g newman-reporter-htmlextra
+newman run collection.json -r htmlextra
+
+
+npm i -g newman-reporter-junitfullreport
+newman run collection.json -r junit --reporter-junit-export
